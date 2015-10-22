@@ -1,5 +1,7 @@
 package io.github.ashleysullins.breakthecode.UI;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -42,6 +44,14 @@ public class NonProfitActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mCurrentPartner = mPartnerLib.nextPartner(mCurrentPartner);
                 setLayoutContent();
+            }
+        });
+
+        mPartnerImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(mCurrentPartner.getWebsite()));
+                startActivity(intent);
             }
         });
     }
